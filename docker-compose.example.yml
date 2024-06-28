@@ -1,0 +1,15 @@
+services:
+  divoom2gif:
+    image: divoom2gif
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: divoom2gif
+    volumes:
+      - ./download:/srv/gif
+    environment:
+      - EMAIL= #Your Divoom email here
+      - MD5_PASSWORD= #Your Divoom password hashed in MD5
+      # Downloaded animations number will be DOWNLOAD_PAGES * ANIMATIONS_PER_PAGE
+      - DOWNLOAD_PAGES=3 #Number of pages to fetch
+      - ANIMATIONS_PER_PAGE=20 #Number of animations to download per page
