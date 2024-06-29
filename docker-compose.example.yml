@@ -10,6 +10,7 @@ services:
     environment:
       - EMAIL= #Your Divoom email here
       - MD5_PASSWORD= #Your Divoom password hashed in MD5
+      - GIF_SCALE=5 #Multiplier for the gif dimensions. Set to 1 to save 16x16 px gifs.
       # Downloaded animations number will be DOWNLOAD_PAGES * ANIMATIONS_PER_PAGE
       - DOWNLOAD_PAGES=3 #Number of pages to fetch
       - ANIMATIONS_PER_PAGE=20 #Number of animations to download per page

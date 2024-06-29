@@ -7,7 +7,6 @@ MD5_PASSWORD = os.environ['MD5_PASSWORD']
 animations_per_page = int(os.environ['ANIMATIONS_PER_PAGE'])
 pages_to_dl = int(os.environ['DOWNLOAD_PAGES'])
 
-# Also accept password string with "password='password'"
 api = APIxoo(EMAIL, md5_password=MD5_PASSWORD)
 status = api.log_in()
 if not status:
@@ -27,6 +26,6 @@ else:
             print(info)
             pixel_bean = api.download(info)
             if pixel_bean:
-                pixel_bean.save_to_gif(f'gif/{info.gallery_id}.gif', scale=5)
+                pixel_bean.save_to_gif(f'gif/{info.gallery_id}.gif', scale=os.environ['GIF_SCALE'])
 
         iteration += 1
